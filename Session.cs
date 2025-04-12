@@ -126,7 +126,7 @@ namespace Wordle
             {
                 if (!Word.Contains(letter))
                 {
-                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write(letter);
                     Console.ResetColor();
                 }
@@ -195,7 +195,7 @@ namespace Wordle
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write(letter);
                         Console.ResetColor();
                     }
