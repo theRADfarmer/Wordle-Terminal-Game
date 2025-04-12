@@ -67,9 +67,9 @@ namespace Wordle
 
         private const int MaxGuesses = 6;
 
-        public string Word = null!;
+        private string Word = null!;
 
-        private string Guess;
+        private string Guess = null!;
 
         private List<char> GuessedLetters = [];
 
