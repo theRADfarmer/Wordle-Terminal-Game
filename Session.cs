@@ -73,10 +73,7 @@ namespace Wordle
 
         private List<char> GuessedLetters = [];
 
-        private readonly string[] words = { "apple", "grape", "peach", "berry", "melon", "mango", "lemon", "cheer", "grout", "smoky",
-            "train", "bravo", "piled", "sills", "baggy", "prays", "twist", "sheep", "baste", "value", "squat", "bales", "diner",
-            "tenor", "fried", "talks", "belle", "fever", "tying", "gazed", "piker", "usurp", "delve", "arrow", "reads", "tunes",
-            "yours", "wheat", "share", "shave", "skill" };
+        private string[] Words = File.ReadAllLines("Words.txt");
 
         private readonly char[] alphabet = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
             's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
@@ -84,8 +81,8 @@ namespace Wordle
         private string GetRandomWord()
         {
             var random = new Random();
-            int index = random.Next(words.Length);
-            return words[index];
+            int index = random.Next(Words.Length);
+            return Words[index];
         }
 
         private string GetWord()
@@ -96,12 +93,17 @@ namespace Wordle
             {
                 if (word.Length != 5)
                 {
-                    Console.WriteLine("Word must be 5 letters");
+                    Console.WriteLine("\nWord must be 5 letters");
                     return GetWord();
                 }
                 else if (!Regex.IsMatch(word, @"^[a-zA-Z]+$"))
                 {
-                    Console.WriteLine("Word must be letters only");
+                    Console.WriteLine("\nWord must be letters only");
+                    return GetWord();
+                }
+                else if (!Words.Contains(word.ToLower()))
+                {
+                    Console.WriteLine("\nWord not in dictionary");
                     return GetWord();
                 }
                 else
