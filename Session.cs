@@ -93,12 +93,17 @@ namespace Wordle
             {
                 if (word.Length != 5)
                 {
-                    Console.WriteLine("Word must be 5 letters");
+                    Console.WriteLine("\nWord must be 5 letters");
                     return GetWord();
                 }
                 else if (!Regex.IsMatch(word, @"^[a-zA-Z]+$"))
                 {
-                    Console.WriteLine("Word must be letters only");
+                    Console.WriteLine("\nWord must be letters only");
+                    return GetWord();
+                }
+                else if (!Words.Contains(word.ToLower()))
+                {
+                    Console.WriteLine("\nWord not in dictionary");
                     return GetWord();
                 }
                 else
