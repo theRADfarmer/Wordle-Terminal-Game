@@ -67,13 +67,13 @@ namespace Wordle
 
         private const int MaxGuesses = 6;
 
-        public string Word;
+        public string Word = null!;
 
         private string Guess;
 
         private List<char> GuessedLetters = new List<char>();
 
-        private string[] words = { "apple", "grape", "peach", "berry", "melon", "mango", "lemon", "cherry", "grout", "smoky",
+        private string[] words = { "apple", "grape", "peach", "berry", "melon", "mango", "lemon", "cheer", "grout", "smoky",
             "train", "bravo", "piled", "sills", "baggy", "prays", "twist", "sheep", "baste", "value", "squat", "bales", "diner",
             "tenor", "fried", "talks", "belle", "fever", "tying", "gazed", "piker", "usurp", "delve", "arrow", "reads", "tunes",
             "yours", "wheat", "share", "shave", "skill" };
