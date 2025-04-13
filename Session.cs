@@ -32,11 +32,10 @@ namespace Wordle
 
                 PrintWord();
                 UpdateGuessedLetters();
-                PrintGameState();
 
                 if (IsGuessCorrect())
                 {
-                    if (i == 1)
+                    if (i == 5)
                     {
                         Console.WriteLine($"\nYou guessed the word in {MaxGuesses - i} guess!");
                     }
@@ -46,6 +45,8 @@ namespace Wordle
                     }
                     break;
                 }
+
+                PrintGameState();
 
                 if (i == 0)
                 {
@@ -124,6 +125,7 @@ namespace Wordle
         {
             Console.WriteLine();
 
+            int index = 0;
             foreach (char letter in Guess)
             {
                 if (!Word.Contains(letter))
@@ -132,7 +134,7 @@ namespace Wordle
                     Console.Write(letter);
                     Console.ResetColor();
                 }
-                else if (Word.IndexOf(letter) == Guess.IndexOf(letter))
+                else if (Word[index] == letter)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write(letter);
@@ -144,6 +146,8 @@ namespace Wordle
                     Console.Write(letter);
                     Console.ResetColor();
                 }
+
+                ++index;
             }
 
             Console.WriteLine();
