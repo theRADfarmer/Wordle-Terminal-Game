@@ -125,6 +125,7 @@ namespace Wordle
         {
             Console.WriteLine();
 
+            int index = 0;
             foreach (char letter in Guess)
             {
                 if (!Word.Contains(letter))
@@ -133,7 +134,7 @@ namespace Wordle
                     Console.Write(letter);
                     Console.ResetColor();
                 }
-                else if (Word.IndexOf(letter) == Guess.IndexOf(letter))
+                else if (Word[index] == letter)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write(letter);
@@ -145,6 +146,8 @@ namespace Wordle
                     Console.Write(letter);
                     Console.ResetColor();
                 }
+
+                ++index;
             }
 
             Console.WriteLine();
