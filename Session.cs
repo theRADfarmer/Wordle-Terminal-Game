@@ -32,7 +32,6 @@ namespace Wordle
 
                 PrintWord();
                 UpdateGuessedLetters();
-                PrintGameState();
 
                 if (IsGuessCorrect())
                 {
@@ -46,6 +45,8 @@ namespace Wordle
                     }
                     break;
                 }
+
+                PrintGameState();
 
                 if (i == 0)
                 {
