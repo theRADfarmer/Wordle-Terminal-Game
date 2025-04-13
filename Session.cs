@@ -36,7 +36,7 @@ namespace Wordle
 
                 if (IsGuessCorrect())
                 {
-                    if (i == 1)
+                    if (i == 5)
                     {
                         Console.WriteLine($"\nYou guessed the word in {MaxGuesses - i} guess!");
                     }
